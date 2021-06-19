@@ -1,4 +1,4 @@
-package com.scc211.exam.exam2;
+package com.scc211.exam.exam2.servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/usr/home/main")
-public class UsrHomeMain extends HttpServlet {
+public class UsrHomeMainServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		String name = request.getParameter("name");
