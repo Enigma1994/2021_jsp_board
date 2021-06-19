@@ -7,34 +7,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class UsrHomeMain
- */
 @WebServlet("/usr/home/main")
 public class UsrHomeMain extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UsrHomeMain() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		String name = request.getParameter("name");
+		
+		// 들어오는 파라미터를 UTF-8로 해석
+		request.setCharacterEncoding("UTF-8");
+		
+		// 서블릿이 HTML 파일을 만들때 UTF-8로 쓰기
+		response.setCharacterEncoding("UTF-8");
+		// HTML이 UTF-8 형식이라는 것을 브라우저에게 알린다.
+		response.setContentType("text/html; charset=UTF-8");
+		
+		response.getWriter().append(name);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 
